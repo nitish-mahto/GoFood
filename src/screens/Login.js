@@ -14,13 +14,12 @@ export default function Login() {
         ...data,
       })
       .then((data) => {
-        // console.log("Data sent : " + data);
-        alert('Login Successful');
+        alert("Login Successful");
         navigate("/");
       })
       .catch((err) => {
         // console.log("Error sending data : " + err);
-        alert('Please Enter valid email id and password');
+        alert("Please Enter valid email 📧 id and password 🔑 ");
       });
   };
   return (

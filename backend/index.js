@@ -5,6 +5,7 @@ const mongoDB = require('./db');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const userRoutes = require('./Routes/user.routes');
+const createUserData = require('./Routes/CreateUser');
 
 mongoDB();
 
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(bodyParser.json())
 app.use('/',userRoutes)
-
+// app.use('/',createUserData);
 // app.use('/api', require("./Routes/CreateUser"))
 
 app.get('/', (req, res) => {

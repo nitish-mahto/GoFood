@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
+// const { resolveTo } = require("@remix-run/router");
+
 const { Schema } = mongoose;
 
 const UserSchema = new Schema({
@@ -42,5 +44,20 @@ UserSchema.pre("save", function (next) {
     });
   });
 });
+
+//Login authentication...
+UserSchema.method.comparePasswords = function (candidatePassword) {
+  return new Promise((resolve, reject) => {
+    bcrypt.compare(
+      candidatePassword,
+      this.password,
+      function (err, ismathch) {
+        if (err) return reject(err);
+        resolve(ismathch);
+      }
+    );
+  });
+};
+
 
 module.exports = mongoose.model("user", UserSchema);

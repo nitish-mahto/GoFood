@@ -9,10 +9,13 @@ const mongoDB = async () => {
   try {
     mongoose.connect(mongoURI, async () => {
       console.log("Connected to MongoDB");
-      const fetch_data = mongoose.connection.db.collection("food_items");
+      const fetch_data = mongoose.connection.db.collection("food_items")
       fetch_data.find({}).toArray(function (err, data) {
         if (err) console.log("Error fetching data : " + err);
         // else console.log(data);
+        else global.food_Item = data;
+
+        // console.log(global.food_Item)
       });
     });
   } catch (error) {

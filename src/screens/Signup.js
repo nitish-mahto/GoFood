@@ -16,13 +16,13 @@ export default function Signup() {
         ...data,
       })
       .then((data) => {
-        // console.log(data);
+        console.log(data);
         alert("Register successful 😃 ");
         navigate("/login");
       })
       .catch((err) => {
         // console.log("Error: " + err);
-        alert("Error : 😠 : ", +err);
+        alert("Error 😠  : Please try again");
       });
   };
   return (
@@ -104,7 +104,7 @@ export default function Signup() {
                         </div>
 
                         {/* Input Field for confirm Password */}
-                        <div className="d-flex flex-row align-items-center mb-4">
+                        {/* <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-key fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
                             <input
@@ -116,7 +116,7 @@ export default function Signup() {
                               placeholder="Repeat your password"
                             />
                           </div>
-                        </div>
+                        </div> */}
 
                         <div className="form-check d-flex justify-content-center mb-5">
                           <input
